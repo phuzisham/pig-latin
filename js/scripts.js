@@ -5,7 +5,7 @@ $(document).ready(function(){
     // var result = ;
     // alert();
     // $('#result').text(result);
-    pigLatin(latin);
+    stringArray(latin);
   });
 });
 
@@ -18,15 +18,15 @@ function pigLatin(str) {
       if (str.slice(0, 2) == 'qu' || str.slice(0, 2) == 'Qu') {
         var x = str.slice(0, 2);
         str = str.slice(2).concat(x);
-        alert(str);
-        return;
+        //alert(str);
+        return str;
       } else if (str.charAt(0) === vowels[j]) {
       str = str.concat('way');
-      alert(str);
-      return;
+      //alert(str);
+      return str;
     } else if (str.charAt(0) === consonants[j]) {
-      alert(cons(str));
-      return;
+      //alert(cons(str));
+      return cons(str);
     }
   }
 }
@@ -42,4 +42,12 @@ function cons(str) {
       }
     }
   }
+}
+
+function stringArray(str) {
+  str = str.split(' ');
+  for (var i = 0; i < str.length; i++) {
+    str[i] = pigLatin(str[i]);
+  }
+  alert(str.join(' '));
 }
