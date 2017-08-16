@@ -2,16 +2,12 @@ $(document).ready(function(){
   $("#pigForm").submit(function(event){
     event.preventDefault();
     var latin = $("input#pigLatin").val();
-    // var result = ;
-    // alert();
-    // $('#result').text(result);
     stringArray(latin);
   });
 });
 
 var vowels = ["A", "a", "E", "e", "I", "i", "O", "o", "U", "u"];
 var consonants = ['B', 'b', 'C', 'c', 'D', 'd', 'F', 'f', 'G', 'g', 'H', 'h', 'J', 'j', 'K', 'k', 'L', 'l', 'M', 'm', 'N', 'n', 'P', 'p', 'Q', 'q', 'R', 'r', 'S', 's', 'T', 't', 'V', 'v', 'W', 'w', 'X', 'x', 'Y', 'y', 'Z', 'z'];
-
 
 function pigLatin(str) {
   for (var j = 0; j < consonants.length; j++) {
@@ -24,9 +20,13 @@ function pigLatin(str) {
       str = str.concat('way');
       //alert(str);
       return str;
-    } else if (str.charAt(0) === consonants[j]) {
-      //alert(cons(str));
-      return cons(str);
+      } else if (str.charAt(0) === consonants[j] && str.charAt(1) == 'q' && str.charAt(2) == 'u') {
+        var x = str.slice(0, 3);
+        str = str.slice(3).concat(x);
+        return str;
+      } else if (str.charAt(0) === consonants[j]) {
+          //alert(cons(str));
+          return cons(str);
     }
   }
 }
