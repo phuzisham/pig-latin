@@ -15,7 +15,12 @@ var consonants = ['B', 'b', 'C', 'c', 'D', 'd', 'F', 'f', 'G', 'g', 'H', 'h', 'J
 
 function pigLatin(str) {
   for (var j = 0; j < consonants.length; j++) {
-    if (str.charAt(0) === vowels[j]) {
+      if (str.slice(0, 2) == 'qu' || str.slice(0, 2) == 'Qu') {
+        var x = str.slice(0, 2);
+        str = str.slice(2).concat(x);
+        alert(str);
+        return;
+      } else if (str.charAt(0) === vowels[j]) {
       str = str.concat('way');
       alert(str);
       return;
