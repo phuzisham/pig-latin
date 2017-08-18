@@ -1,8 +1,8 @@
 $(document).ready(function(){
   $("#pigForm").submit(function(event){
     event.preventDefault();
-    var latin = $("input#pigLatin").val();
-    stringArray(latin);
+    var userInput = $("input#pigLatin").val();
+    stringArray(userInput);
   });
 });
 
@@ -24,18 +24,18 @@ function pigLatin(str) {
         str = str.slice(2).concat(x);
         return str;
       } else if (str.charAt(0) === 'y' || str.charAt(0) === 'Y') {
-        var x = str.slice(0, 1);
-        str = str.slice(1).concat(x + 'ay');
-        return str;
+          var x = str.slice(0, 1);
+          str = str.slice(1).concat(x + 'ay');
+          return str;
       } else if (str.charAt(0) === vowels[j]) {
-      str = str.concat('way');
-        return str;
-      } else if (str.charAt(0) === consonants[j] && str.charAt(1) == 'q' && str.charAt(2) == 'u') {
-        var x = str.slice(0, 3);
-        str = str.slice(3).concat(x);
-        return str;
+          str = str.concat('way');
+          return str;
+      } else if (str.charAt(0) === consonants[j] && str.charAt(1) == 'q' &&   str.charAt(2) == 'u') {
+          var x = str.slice(0, 3);
+          str = str.slice(3).concat(x);
+          return str;
       } else if (str.charAt(0) === consonants[j]) {
-        return cons(str);
+          return cons(str);
     }
   }
 }
@@ -46,9 +46,9 @@ function cons(str) {
       if (str.charAt(0) === vowels[j]) {
         return str.concat('ay');
       } else if (str.charAt(0) == consonants[j]) {
-        var x = str.slice(0, 1);
-        str = str.slice(1).concat(x);
-      }
+          var x = str.slice(0, 1);
+          str = str.slice(1).concat(x);
+        }
     }
   }
 }
